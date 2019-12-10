@@ -1,0 +1,22 @@
+--- 
+- 
+  gather_facts: true
+  hosts: ~
+  name: "installing nginx"
+  tasks: 
+    - 
+      name: "install nginx"
+      yum: 
+        - 
+          name: nginx
+          state: present
+    - 
+      name: "start nginx"
+      service: 
+        - 
+          name: nginx
+          state: started
+    - 
+      dest: jenkinstesting/ravi
+      name: "copy nginx to tmp"
+      src: home/teja
